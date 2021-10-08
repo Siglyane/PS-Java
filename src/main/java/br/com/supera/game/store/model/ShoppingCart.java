@@ -17,7 +17,7 @@ public class ShoppingCart {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public long id;
+    public Long id;
 
     @OneToMany
     private List<Product> chosenProducts;
