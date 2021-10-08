@@ -22,14 +22,14 @@ import static org.junit.Assert.fail;
 public class ProductDaoExampleTest {
 
     @Rule
-    public EntityManagerProvider emProvider = EntityManagerProvider.instance("productDS");  
+    public EntityManagerProvider emProvider = EntityManagerProvider.instance("productDS");
 
     @Rule
-	public DBUnitRule dbUnitRule = DBUnitRule.instance(emProvider.connection()); 
-	
+	public DBUnitRule dbUnitRule = DBUnitRule.instance(emProvider.connection());
+
 	@Test
 	@DBUnit(allowEmptyFields = true)
-    @DataSet("products.yml") 
+    @DataSet("products.yml")
     public void shouldListProducts() {
 		try {
 			List<Product> products = em().
@@ -41,6 +41,6 @@ public class ProductDaoExampleTest {
 			e.printStackTrace();
 			fail(e.getMessage());
 		}
-        
+
     }
 }
