@@ -18,29 +18,29 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.fail;
 
-@RunWith(JUnit4.class)
+//@RunWith(JUnit4.class)
 public class ProductDaoExampleTest {
 
-    @Rule
-    public EntityManagerProvider emProvider = EntityManagerProvider.instance("productDS");
-
-    @Rule
-	public DBUnitRule dbUnitRule = DBUnitRule.instance(emProvider.connection());
-
-	@Test
-	@DBUnit(allowEmptyFields = true)
-    @DataSet("products.yml")
-    public void shouldListProducts() {
-		try {
-			List<Product> products = em().
-					createQuery("select p from Product p").
-					getResultList();
-			assertNotNull(products);
-			assertEquals(9, products.size());
-		} catch (Exception e) {
-			e.printStackTrace();
-			fail(e.getMessage());
-		}
-
-    }
+//    @Rule
+//    public EntityManagerProvider emProvider = EntityManagerProvider.instance("productDS");
+//
+//    @Rule
+//	public DBUnitRule dbUnitRule = DBUnitRule.instance(emProvider.connection());
+//
+//	@Test
+//	@DBUnit(allowEmptyFields = true)
+//    @DataSet("products.yml")
+//    public void shouldListProducts() {
+//		try {
+//			List<Product> products = em().
+//					createQuery("select p from Product p").
+//					getResultList();
+//			assertNotNull(products);
+//			assertEquals(9, products.size());
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//			fail(e.getMessage());
+//		}
+//
+//    }
 }

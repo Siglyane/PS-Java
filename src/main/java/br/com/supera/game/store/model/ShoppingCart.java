@@ -34,6 +34,10 @@ public class ShoppingCart {
     @Column(name="shopping_cart_date")
     private LocalDateTime dateShoppingCartCreate;
 
+    public ShoppingCart(LocalDateTime dateShoppingCartCreate) {
+        this.dateShoppingCartCreate = dateShoppingCartCreate;
+    }
+
     private boolean purchased = false;
 
     public long getId() {
