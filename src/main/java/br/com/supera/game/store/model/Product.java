@@ -31,6 +31,7 @@ public class Product {
    @Column
    private String image;
 
+
    public long getId() {
       return id;
    }

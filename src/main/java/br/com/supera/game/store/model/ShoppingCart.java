@@ -19,8 +19,8 @@ public class ShoppingCart {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Long id;
 
-    @OneToMany
-    private List<Product> chosenProducts;
+    @OneToMany(mappedBy = "shopping_cart")
+    private List<ItemsShoppingCart> itemsShoppingCarts;
 
     @Column
     private BigDecimal shipment;
@@ -34,26 +34,28 @@ public class ShoppingCart {
     @Column(name="shopping_cart_date")
     private LocalDateTime dateShoppingCartCreate;
 
+    @Column(name="purchased")
+    private boolean purchased = false;
+
+
     public ShoppingCart(LocalDateTime dateShoppingCartCreate) {
         this.dateShoppingCartCreate = dateShoppingCartCreate;
     }
-
-    private boolean purchased = false;
 
     public long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public List<Product> getChosenProducts() {
-        return chosenProducts;
+    public List<ItemsShoppingCart> getItemsShoppingCarts() {
+        return itemsShoppingCarts;
     }
 
-    public void setChosenProducts(List<Product> chosenProducts) {
-        this.chosenProducts = chosenProducts;
+    public void setItemsShoppingCarts(List<ItemsShoppingCart> itemsShoppingCarts) {
+        this.itemsShoppingCarts = itemsShoppingCarts;
     }
 
     public BigDecimal getShipment() {
