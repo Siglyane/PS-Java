@@ -9,16 +9,20 @@ import br.com.supera.game.store.repository.ShoppingCartRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.Optional;
 
-
+@RestController
+@RequestMapping("/shopping-cart/itens")
 public class ShoppingCartController {
 
     @Autowired
@@ -65,7 +69,7 @@ public class ShoppingCartController {
                 //Ao separar a camada de service e controller, o ideal seria fazer um método para
                 // a regra de negocio do frete.
                 shoppingCart.get().setShipment(shoppingCart.get().getShipment().add(BigDecimal.valueOf(10)));
-                ;
+
                 return new ResponseEntity<>(itemsShoppingCartRepository.save(addNewItem), HttpStatus.CREATED);
 
             } else {
@@ -76,6 +80,25 @@ public class ShoppingCartController {
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
+    }
+
+    @DeleteMapping("/retirar-itens/{id}")
+    public ResponseEntity deleteItemShoppingCart(@PathVariable("id") long id) {
+        try {
+            Optional<ShoppingCart> shoppingCart = shoppingCartRepository.findById(id);
+            if (shoppingCart.isPresent() && !shoppingCart.get().isPurchased()) {
+                itemsShoppingCartRepository.deleteById(id);
+                shoppingCart.get().setShipment(shoppingCart.get().getShipment().subtract(BigDecimal.valueOf(10)));
+
+                return ResponseEntity.status(HttpStatus.OK).body("Item retirado com sucesso");
+            } else {
+                return ResponseEntity.status(HttpStatus.FORBIDDEN).body("Não é permitido deletar um item que não existe ou se o carrinho já foi finalizada");
+            }
+
+        }catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
     }
 
     @PutMapping("/finalizar/{id}")

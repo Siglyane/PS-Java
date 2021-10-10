@@ -47,33 +47,16 @@ public class ItemsShoppingCart {
         this.shoppingCart = shoppingCart;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public int getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
 
     public BigDecimal getUnPrice() {
         return unPrice;
     }
 
-    public void setUnPrice(BigDecimal unPrice) {
-        this.unPrice = unPrice;
-    }
-
-    public BigDecimal getTotalPrice() {
-        return totalPrice;
-    }
 
     public void setTotalPrice(BigDecimal totalPrice) {
         this.totalPrice = totalPrice;
@@ -83,15 +66,10 @@ public class ItemsShoppingCart {
         return product;
     }
 
-    public void setProduct(Product product) {
-        this.product = product;
-    }
 
     public ShoppingCart getShoppingCart() {
         return shoppingCart;
     }
 
-    public void setShoppingCart(ShoppingCart shoppingCart) {
-        this.shoppingCart = shoppingCart;
-    }
+
 }

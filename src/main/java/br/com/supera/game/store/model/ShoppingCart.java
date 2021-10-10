@@ -42,22 +42,6 @@ public class ShoppingCart {
         this.dateShoppingCartCreate = dateShoppingCartCreate;
     }
 
-    public long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public List<ItemsShoppingCart> getItemsShoppingCarts() {
-        return itemsShoppingCarts;
-    }
-
-    public void setItemsShoppingCarts(List<ItemsShoppingCart> itemsShoppingCarts) {
-        this.itemsShoppingCarts = itemsShoppingCarts;
-    }
-
     public BigDecimal getShipment() {
         return shipment;
     }
@@ -66,29 +50,16 @@ public class ShoppingCart {
         this.shipment = shipment;
     }
 
-    public BigDecimal getSubtotalPrice() {
-        return subtotalPrice;
-    }
 
     public void setSubtotalPrice(BigDecimal subtotalPrice) {
         this.subtotalPrice = subtotalPrice;
     }
 
-    public BigDecimal getTotalPrice() {
-        return totalPrice;
-    }
 
     public void setTotalPrice(BigDecimal totalPrice) {
         this.totalPrice = totalPrice;
     }
 
-    public LocalDateTime getDateShoppingCartCreate() {
-        return dateShoppingCartCreate;
-    }
-
-    public void setDateShoppingCartCreate(LocalDateTime dateShoppingCartCreate) {
-        this.dateShoppingCartCreate = dateShoppingCartCreate;
-    }
 
     public boolean isPurchased() {
         return purchased;
