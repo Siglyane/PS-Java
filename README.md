@@ -1,6 +1,10 @@
 # Avaliação Java
 
-
+##Sobre o Projeto
+  
+  O projeto foi criado para ser usado com o Framework Springboot, porém ao organizar as dependências, 
+tive dificuldades, algumas demonstraram incompatibilidade sendo necessário comentar algumas e tentar procurar soluções usando outras versões delas,
+mesmo não conseguindo rodar o projeto, resolvi tentar codar para entregar alguma demonstração do código.
 ## Descrição
 
   O teste consiste em construir a camada de serviço de um pseudo ecommerce de games mobile utilizando Java
